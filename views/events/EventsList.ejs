@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Table V01</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--===============================================================================================-->
+		<link
+			rel="icon"
+			type="image/png"
+			href="/speakers/images/icons/favicon.ico"
+		/>
+		<!--===============================================================================================-->
+		
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="/speakers/vendor/animate/animate.css"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="/speakers/vendor/select2/select2.min.css"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="/speakers/vendor/perfect-scrollbar/perfect-scrollbar.css"
+		/>
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="/speakers/css/util.css" />
+		<link rel="stylesheet" type="text/css" href="/speakers/css/main.css" />
+		<link rel="icon" type="image/png" href="/login/images/icons/favicon.ico" />
+		<%- include( "../partials/header") -%>
+
+		<!--===============================================================================================-->
+	<script>
+deleterow=function(id,obj){
+	$.ajax({	url:"http://localhost:8083/events/delete/"+id,
+	method:"get",
+	dataType:"text",
+success:function(result){$(obj).parents("tr").remove();},
+error:function(error){console.log(error+"");}
+
+})
+}
+
+editrow=function(id,obj){
+
+	
+}
+	</script>
+	</head>
+	<body>
+		<div style="background-image: url('/login/images/bg-01.jpg');">
+			<div class="limiter">
+				<div class="container-table100">
+					<div class="wrap-table100">
+						<div class="table100">
+							<table>
+								<thead>
+									<tr style="color: antiquewhite;">
+										<th scope="col">#</th>
+										<th scope="col">title</th>
+										<th scope="col">date</th>
+										<th scope="col">main Speaker</th>
+										<th scope="col">other Speakers</th>
+										<% if(role=="admin"){ %>
+
+										<th scope="col"> <a>Edit</a></th>
+										<th scope="col"> <a>Deleta</a> </th>
+										<% }  %>
+
+									</tr>
+								</thead>
+								<tbody>
+                                    <% data.forEach((Event)=>{%>
+									<tr>
+										<td><%=Event._id%></td>
+										<td><%=Event._title%></td>
+										<td><%=Event._eventDate%></td>
+										<td><%=Event._mainSpeaker._name%></td>
+										<td>
+
+										<ul>
+
+										<%Event._otherSpeakers.forEach(speaker=>{ %>
+											<li><%=speaker._name%></li>
+										<%})%>
+										</ul>
+									</td>
+									<% if(role=="admin"){ %>
+
+										<td>
+											<a href="edit/<%=Event._id%>" class="btn btn-warning">
+												Edit
+											</a>
+										</td>
+										<td>
+											<a  name="delete"
+											 class="btn btn-danger" onclick="deleterow(<%=Event._id%>,this)">
+												Delete
+											</a>
+										</td>
+									
+										<% }  %>
+
+
+									</tr>
+									<% }); %>
+
+								</tbody>
+							</table>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</script>
+			<!--===============================================================================================-->
+			<script src="/speakers/vendor/jquery/jquery-3.2.1.min.js"></script>
+			<!--===============================================================================================-->
+			<meta charset="utf-8" />
+        <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/css/bootstrap.css" rel="stylesheet" />
+        <link href="/css/font-awesome.css" rel="stylesheet" />
+       
+			<!--===============================================================================================-->
+			<script src="/speakers/vendor/select2/select2.min.js"></script>
+			<!--===============================================================================================-->
+			<script src="/speakers/js/main.js"></script>
+		
+		
+		</div>
+
+		
+	</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Table V01</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--===============================================================================================-->
+		<link
+			rel="icon"
+			type="image/png"
+			href="/speakers/images/icons/favicon.ico"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="/speakers/vendor/bootstrap/css/bootstrap.min.css"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="/speakers/vendor/animate/animate.css"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="/speakers/vendor/select2/select2.min.css"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="/speakers/vendor/perfect-scrollbar/perfect-scrollbar.css"
+		/>
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="/speakers/css/util.css" />
+		<link rel="stylesheet" type="text/css" href="/speakers/css/main.css" />
+		<link rel="icon" type="image/png" href="/login/images/icons/favicon.ico" />
+		<%- include( "../partials/header") -%>
+
+		<!--===============================================================================================-->
+	<script>
+deleterow=function(id,obj){
+	$.ajax({	url:"http://localhost:8083/speakers/delete/"+id,
+	method:"get",
+	dataType:"text",
+success:function(result){$(obj).parents("tr").remove();},
+error:function(error){console.log(error+"");}
+
+})
+}
+
+edit=function(id,obj){
+
+	
+}
+	</script>
+	</head>
+	<body>
+		<div
+			class="container-login100"
+			style="background-image: url('/login/images/bg-01.jpg');"
+		>
+		<div class="limiter" 			style="background-image: url('/login/images/bg-01.jpg');"
+		>
+				<div class="container-table100">
+					<div class="wrap-table100">
+						<div class="table100">
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Name</th>
+										<th scope="col">Email</th>
+										<th scope="col"> <a>Edit</a></th>
+										<th scope="col"> <a>Deleta</a> </th>
+									</tr>
+								</thead>
+								<tbody>
+                                    <% data.forEach((speaker)=>{%>
+									<tr>
+										<td><%=speaker._id%></td>
+										<td><%=speaker._name%></td>
+										<td><%=speaker._email%></td>
+										<td>
+											<a href="edit/<%=speaker._id%>" class="btn btn-warning">
+												Edit
+											</a>
+										</td>
+										<td>
+											<a  name="delete"
+											 class="btn btn-danger" onclick="deleterow(<%=speaker._id%>,this)">
+												Delete
+											</a>
+										</td>
+									</tr>
+									<% }); %>
+
+								</tbody>
+							</table>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+			<!--===============================================================================================-->
+			<script src="/speakers/vendor/jquery/jquery-3.2.1.min.js"></script>
+			<!--===============================================================================================-->
+			<script src="/speakers/vendor/bootstrap/js/popper.js"></script>
+			<script src="/speakers/vendor/bootstrap/js/bootstrap.min.js"></script>
+			<!--===============================================================================================-->
+			<script src="/speakers/vendor/select2/select2.min.js"></script>
+			<!--===============================================================================================-->
+			<script src="/speakers/js/main.js"></script>
+		
+		
+		</div>
+	</body>
+</html>

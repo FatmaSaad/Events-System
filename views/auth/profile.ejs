@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Profile</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!--===============================================================================================-->
+		<link rel="icon" type="image/png" href="/login/images/icons/favicon.ico" />
+		<!--===============================================================================================-->
+
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="/login/fonts/iconic/css/material-design-iconic-font.min.css"
+		/>
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css" />
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="/login/vendor/css-hamburgers/hamburgers.min.css"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="/login/vendor/animsition/css/animsition.min.css"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="/login/vendor/select2/select2.min.css"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="/login/vendor/daterangepicker/daterangepicker.css"
+		/>
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="/login/css/util.css" />
+		<link rel="stylesheet" type="text/css" href="/login/css/main.css" />
+		<!--===============================================================================================-->
+		<%- include( "../partials/header") -%>
+		<style>
+			.input100 {
+    font-family: SourceSansPro-Bold;
+    font-size: 16px;
+    color: #6141ac;
+    line-height: 3;
+    width: 100%;
+    height: 100px;
+	text-align: center;
+	margin-top: 30px;
+	justify-content: center;
+    background: transparent;
+	padding-block-start: 30px;
+	padding-block-end: 30px;
+}wrap-input100{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+		</style>
+	</head>
+	<body style="text-align:center;justify-content: center;">
+		<div
+			class="container-login100"
+			style="background-image: url('/login/images/bg-01.jpg');"
+		>
+			<div
+				class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30"
+				style=" height:50%;width: 50%;"
+			>
+				<form
+					style="text-align:center;"
+					action="/events/list"
+					method="GET"
+					class="login100-form validate-form"
+				>
+					<img
+						style="text-align:center; width:200px;border-radius:50%"
+						src="/events/images/bg-01.jpg"
+					/>
+
+					<span class="login100-form-title p-b-37"
+						>Welcome <%=data._UserName%>
+					</span>
+					<div class="text-center " style="margin-top: 30px;">
+						<div style="float: left;" class="wrap-input100 ">
+							<span style="display: inline;" class="input100">
+								UserName
+							</span>
+
+							<span class="label-input100"> <%=data._name%> </span>
+							<span class="focus-input100"> </span>
+						</div>
+						<div class="wrap-input100 ">
+							<span style="position: relative;" class="input100"> E-mail </span>
+
+							<span class="label-input100"> <%=data._email%> </span>
+							<span class="focus-input100"> </span>
+						</div>
+
+						<div class="wrap-input100 ">
+							<span style="position: relative;" class="input100"> Age </span>
+
+							<span class="label-input100"> <%=data._age%> </span>
+							<span class="focus-input100"> </span>
+						</div>
+						<div class="wrap-input100 ">
+							<span style="position: relative;" class="input100">
+								Address
+							</span>
+
+							<span class="label-input100"> <%=data._Address._city%> </span>
+							<span class="label-input100">
+								<%=data._Address._street%>
+							</span>
+							<span class="label-input100"
+								><%=data._Address._building%>
+							</span>
+							<span class="label-input100"
+								><%=data._Address._city%>
+							</span>
+							<span class="focus-input100"> </span>
+						</div>
+						
+					</div>
+
+					<div style="margin-top: 30px;" class="container-login100-form-btn">
+						<button value="login" class="login100-form-btn">
+							See Events →
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div id="dropDownSelect1"></div>
+
+		<!--===============================================================================================-->
+		<script src="/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+		<!--===============================================================================================-->
+		<script src="/login/vendor/animsition/js/animsition.min.js"></script>
+		<!--===============================================================================================-->
+		<script src="/login/vendor/select2/select2.min.js"></script>
+		<!--===============================================================================================-->
+		<script src="/login/vendor/daterangepicker/moment.min.js"></script>
+		<script src="/login/vendor/daterangepicker/daterangepicker.js"></script>
+		<!--===============================================================================================-->
+		<script src="/login/vendor/countdowntime/countdowntime.js"></script>
+		<!--===============================================================================================-->
+		<script src="/login/js/main.js"></script>
+	</body>
+</html>
